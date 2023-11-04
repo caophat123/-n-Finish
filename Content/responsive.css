@@ -1,0 +1,141 @@
+﻿
+
+
+
+/* nav mobile */
+/*.nav-mobile {
+    display: none;
+}
+
+    .nav-mobile .icon-mobile {
+        padding: .5rem;
+        font-size: 35px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        outline: none;
+    }
+
+    .nav-mobile .item_menu {
+        background: #f1df11;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        display: none;
+        padding-bottom: 1rem;
+    }
+
+.item_menu ul li a {
+    color: #43433e;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+}
+
+    .item_menu ul li a:hover {
+        color: #fff;
+    }
+
+.item_menu form {
+    margin: 0 1rem;
+    position: relative;
+}
+
+    .item_menu form input {
+        width: 100%;
+        border: none;
+        background: #fff;
+        padding: 7px;
+        outline: none;
+        border-radius: 12px;
+    }
+
+    .item_menu form button {
+        padding: 5px;
+        border-radius: 12px;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        border: none;
+        outline: none;
+        background: #fff;
+    }*/
+
+/*mobile*/
+/*@media only screen and (min-width:240px) and (max-width:480px) {*/
+
+    /* nav */
+    /*nav .content-nav {
+        display: none;
+    }
+
+    nav {
+        position: fixed !important;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        padding: 0;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+
+    .img-nav {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+        .img-nav img {
+            padding-top: 0.5rem;
+            vertical-align: middle;
+            width: 90%;
+        }
+
+    .content-nav,
+    .item_menu form button {
+        right: 10px;
+    }*/
+
+    /* wrapper */
+    /*.wrapper {
+        padding: 1rem;
+    }
+
+    .products {
+        margin-top: 3rem;
+    }
+
+        .products ul .main-product {
+            width: 100%;
+        }*/
+
+    /* modal */
+    /*.modal-content {
+        width: 95%;
+    }
+
+    .cart-item-title {
+        font-size: 0.6em;
+    }
+
+    .cart-column {
+        margin-right: 0.5em;
+    }
+
+    .cart-price {
+        margin-right: 1rem;
+    }
+
+    #cart {
+        margin: .5rem;
+        padding: 3px;
+    }
+}*/

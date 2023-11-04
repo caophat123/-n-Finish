@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dụng cụ tái chế thân thiện môi trường</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @*<link href="~/Scripts/Model_Cart.js" />*@
+    <link rel="stylesheet" href="~/Content/mystyle.css" />
+    <link rel="stylesheet" href="~/Content/responsive.css" />
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+@{ var user = Session["User"] as DoAnPC.Models.User;}
+@{ var User = HttpContext.Current.Session["User"];}
+
+<body>
+
+    <!-- header -->
+    <header>
+        <!-- bắt đầu nav-mobile -->
+        @*<nav>
+            <div class="nav-mobile">
+                <div class="icon-mobile" id="btnmenu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <div class="item_menu" id="menutop">
+                    @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+                    {
+                        <p>
+                            <input type="text" name="SearchString" placeholder="Tìm kiếm sản phẩm..." />
+                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </p>
+                    }
+                    <ul>
+                        <li><a href="~/Products/ProductList">Trang Chủ</a></li>
+                        <li><a href="#">Sản Phẩm</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="~/Home/Introduce">Giới Thiệu</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>*@
+        @*<script>
+            // menu mobile
+            var btn_menu = document.getElementById("btnmenu");
+            btn_menu.addEventListener("click", function () {
+                var item_menu = document.getElementById("menutop");
+                if (item_menu.style.display === "block") {
+                    item_menu.style.display = "none";
+                } else {
+                    item_menu.style.display = "block";
+                }
+            })
+        </script>*@
+        <!-- kết thúc nav-mobile -->
+        <nav>
+            <div class="content-nav">
+                @{ if (user != null)
+                    {
+                        <a style="color:red; text-decoration:none; font-size: 13px;" href="#"><strong>Xin Chào: @user.HoTen</strong> </a>
+
+                    }
+                }
+                <ul>
+                    <li><a href="~/Products/ProductList">Trang Chủ</a></li>
+                    <div class="dropdown" style="border-radius:15px;">
+                        <style>
+                            .dropdown {
+                                float: left;
+                                scrollbar-color: auto;
+                            }
+
+
+
+                            .navbar a, .dropdown-content a {
+                                float: none;
+                                display: block;
+                                text-align: center;
+                                border-radius: 15px;
+                            }
+
+                            .dropdown-content {
+                                display: none;
+                                position: absolute;
+                                background-color: antiquewhite;
+                                min-width: 100px;
+                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                z-index: 1;
+                            }
+
+                                .dropdown-content a {
+                                    color: red;
+                                    padding: 8px 16px;
+                                    text-decoration: none;
+                                    display: block;
+                                    text-align: left;
+                                }
+
+                                    .dropdown-content a:hover {
+                                        background-color: #ddd;
+                                    }
+
+                            .dropdown:hover .dropdown-content {
+                                display: block;
+                                border-radius: 15px;
+                                width: 4px;
+                            }
+                        </style>
+
+                    <li><a href="#">Sản Phẩm</a></li>
+                    <div class="dropdown-content">
+                        <a href="service1">Service 1</a>
+                        <a href="service2">Service 2</a>
+                        <a href="service3">Service 3</a>
+                    </div>
+                    </div>
+                    
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="~/Home/Introduce">Giới Thiệu</a></li>
+                    
+            </ul>
+
+            @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+            {
+                <p>
+                    <input type="text" name="SearchString" placeholder="Tìm kiếm sản phẩm..." />
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </p>
+            }
+
+
+            </div>
+            <!-- The Modal -->
+            <div>
+                <button id="cart">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+
+                    <a href="~/Cart/GetCartInfo" style="text-decoration:none; color:white; ">Giỏ Hàng</a>
+                    @Html.Action("CartPartial", "Cart")
+                </button>
+            </div>
+
+            @{ if (user == null )
+                {
+                    <a href="~/Home/DangKy" style=" text-decoration: none; border-radius: 20px; margin-left: 250px; "><strong>Đăng Ký </strong> | </a>
+                    <a href="~/Home/DangNhap" style=" text-decoration: none; border-radius: 20px; margin-left: 3px; "><strong>Đăng Nhập</strong></a>
+
+                }
+            }
+            @{
+
+                if (user != null)
+                {
+
+                    <a href="~/Home/DangXuat" style=" text-decoration: none;  margin-left: 280px; "><strong>Đăng Xuất</strong></a>
+
+                }
+            }
+
+            
+        </nav>
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <!-- content -->
+    <!-- footer -->
+    <footer>
+        <div class="footer-item">
+            <div class="img-footer">
+                <img src="~/Images/Nhóm 16 (1).png" alt="" />
+            </div>
+            <div class="social-footer">
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/phatcao.deptry">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://github.com/caophat123/DoAnPC">
+                        <i class="fa fa-github-square" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </div>
+
+        </div>
+        <p>&copy; @DateTime.Now.Year - Nhóm 16-Lập trình trên web </p>
+    </footer>
+  
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
